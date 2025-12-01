@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly Footer</title>
+    <link rel="stylesheet" href="./footer.css" />
+  </head>
+  <body>
+    <!-- Example content to show footer at the bottom -->
+
+    <footer class="main-footer">
+      <div class="footer-container">
+        <!-- 1. Logo & Social Section -->
+        <section class="footer-section footer-logo-section">
+          <div class="logo-title">
+            <img
+              src="./assets/logooo.webp"
+              alt="Stackly Logo Placeholder"
+              class="logo-placeholder"
+              onerror="this.style.display='none'"
+            />
+            <!-- <div class="company-name">Stack<span>ly</span></div> -->
+          </div>
+          <p
+            style="
+              margin-top: 15px;
+              font-size: 0.95rem;
+              color: var(--text-light);
+            "
+          >
+            Engineering a cleaner, brighter future through sustainable energy
+            solutions.
+          </p>
+
+          <div class="social-icons">
+            <a href="./404.html" class="social-icon-link" aria-label="Facebook"
+              >F</a
+            >
+            <a href="./404.html" class="social-icon-link" aria-label="Twitter"
+              >T</a
+            >
+            <a href="./404.html" class="social-icon-link" aria-label="LinkedIn"
+              >L</a
+            >
+            <a href="./404.html" class="social-icon-link" aria-label="Instagram"
+              >I</a
+            >
+          </div>
+        </section>
+
+        <!-- 2. Quick Links -->
+        <section class="footer-section footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="./index.html">HOME</a></li>
+            <li><a href="./service.html">SERVICES</a></li>
+            <li><a href="./green.html">PRODUCTS</a></li>
+            <li><a href="./about.html">ABOUT</a></li>
+            <li><a href="./contact.html">CONTACT</a></li>
+          </ul>
+        </section>
+
+        <!-- 3. Company Address -->
+        <section class="footer-section footer-address">
+          <h4>Contact Info</h4>
+          <p>123 Energy Way, Suite 400</p>
+          <p>Greenville, New York, 10001</p>
+          <p>USA</p>
+          <p style="margin-top: 15px">Email: info@stackly.com</p>
+        </section>
+
+        <!-- 4. Newsletter Subscription Form -->
+        <section class="footer-section footer-newsletter">
+          <h4>Stay Connected</h4>
+          <p>
+            Subscribe to our newsletter for the latest insights on green tech
+            and company news.
+          </p>
+          <form class="newsletter-form" action="./404.html">
+            <div class="newsletter-input-group">
+              <input
+                type="email"
+                class="newsletter-input"
+                placeholder="Enter your email"
+                aria-label="Email for newsletter subscription"
+                required
+              />
+
+              <!-- UPDATED BUTTON STRUCTURE -->
+              <button
+                type="submit"
+                class="subscribe-battery-btn"
+                aria-label="Subscribe to newsletter"
+              >
+                <div class="battery-icon-container">
+                  <div class="battery-fill"></div>
+                </div>
+                <span>Subscribe</span>
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <div class="footer-copyright">
+        &copy; <span id="current-year">2024</span> Stackly. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>

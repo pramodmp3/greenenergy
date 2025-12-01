@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly Contact Us - Get in Touch</title>
+    <!-- Load Poppins font for a modern, professional look -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <!-- Embedded CSS (No Tailwind) -->
+    <link rel="stylesheet" href="./contact2.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <div class="logo">
+          <a href="./home.html">
+            <!-- Placeholder image path -->
+            <img src="./file/logooo.webp" alt="Stackly Logo" />
+          </a>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button class="hamburger" aria-label="Toggle navigation menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </button>
+
+        <ul class="nav-menu">
+          <!-- <li class="nav-item"><a href="#" class="nav-link">HOME</a></li> -->
+
+          <!-- Dropdown Item (Use nav-link-text for navigation) -->
+          <li class="nav-item nav-item-dropdown">
+            <!-- Main Link: Clicking this text navigates -->
+            <a href="./home.html" class="nav-link nav-link-dropdown">
+              <span class="nav-link-text">HOME</span>
+              <!-- Dropdown Icon (Desktop/Mobile toggle) -->
+              <i class="fas fa-chevron-down dropdown-toggle-icon"></i>
+            </a>
+
+            <ul class="dropdown">
+              <li class="dropdown-item">
+                <a href="./index.html">HOME1</a>
+              </li>
+              <!-- <li class="dropdown-item">
+                <a href="#service-solar">Solar Grids</a>
+              </li>
+              <li class="dropdown-item">
+                <a href="#service-storage">Energy Storage</a>
+              </li>
+              <li class="dropdown-item">
+                <a href="#service-consulting">Consulting</a>
+              </li> -->
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="./sol.html" class="nav-link">ENERGY SOLUTIONS</a>
+          </li>
+          <li class="nav-item">
+            <a href="./about2.html" class="nav-link">OUR COMPANY</a>
+          </li>
+          <li class="nav-item">
+            <a href="./globe.html" class="nav-link">SOCIAL WORKS</a>
+          </li>
+          <!-- <li class="nav-item"><a href="./contact.html" class="nav-link">CONTACT</a></li> -->
+          <li class="nav-item">
+            <a href="./blog2.html" class="nav-link">BLOG</a>
+          </li>
+
+          <!-- Login Button (Treated as a menu item on mobile) -->
+          <li class="nav-login">
+            <a href="./contact2.html" class="login-btn">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Main Container -->
+    <div class="contact-container">
+      <!-- Header and Branding -->
+      <div class="header">
+        <div class="logo-wrapper">
+          <!-- Placeholder Logo Image -->
+          <!-- <img
+            src=""
+            onerror="this.onerror=null; this.src='https://placehold.co/48x48/0054A6/F0F9FF?text=S';"
+            alt="Stackly Logo"
+            class="logo"
+          /> -->
+          <!-- <span class="company-name">Stackly</span> -->
+        </div>
+        <!-- <h1 class="title">Contact Stackly</h1>
+        <p class="subtitle">
+          We're here to help accelerate your clean energy goals. Reach out
+          today.
+        </p> -->
+      </div>
+
+      <!-- Content Wrapper: Form and Map -->
+      <div class="content-wrapper">
+        <!-- Contact Form Section -->
+        <div class="contact-form-section">
+          <p class="form-heading">Send Us a Message</p>
+          <form action="./404.html">
+            <!-- Full Name & Email Row -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="full-name" class="input-label">Full Name</label>
+                <input
+                  type="text"
+                  id="full-name"
+                  name="full-name"
+                  class="input-field"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email" class="input-label">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="input-field"
+                  placeholder="you@stackly.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Phone Number & Subject Row -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone" class="input-label"
+                  >Phone Number (Optional)</label
+                >
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="input-field"
+                  placeholder="(555) 555-5555"
+                />
+              </div>
+              <div class="form-group">
+                <label for="subject" class="input-label">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  class="input-field"
+                  placeholder="Project Inquiry"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Message Textarea -->
+            <div class="form-group">
+              <label for="message" class="input-label">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                class="textarea-field"
+                placeholder="Tell us about your project or inquiry..."
+                required
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit Inquiry</button>
+          </form>
+        </div>
+
+        <!-- Google Map Section -->
+        <div class="map-section">
+          <div class="map-wrapper">
+            <!-- Embedded Google Map of New York (Responsive) -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869695!2d-74.11976378411878!3d40.69766311634392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1678881234567!5m2!1sen!2sin"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Stackly Headquarters Location in New York"
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Stackly Footer Component -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-logo-section">
+          <!-- 1. Logo Section - Placeholder for Image --><img
+            src="./file/logooo.webp"
+            alt="Stackly Logo"
+            class="footer-logo"
+          />
+
+          <!-- 2. Social Media Icons Section -->
+          <div class="social-icons">
+            <!-- Using Font Awesome icons (if CDN is loaded) or simple text placeholders --><a
+              href="./404.html"
+              class="social-icon instagram"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="./404.html"
+              class="social-icon facebook"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="./404.html"
+              class="social-icon linkedin"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              href="./404.html"
+              class="social-icon twitter"
+              aria-label="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- Main Footer Content Grid -->
+        <div class="footer-content-grid">
+          <!-- Column 1: Quick Links -->
+          <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="./home.html">HOME</a></li>
+              <li><a href="./sol.html">ENERGY SOLUTIONS</a></li>
+              <li><a href="./globe.html">GLOBAL</a></li>
+              <li><a href="./about2.html">ABOUT</a></li>
+              <li><a href="./contact2.html">CONTACT</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 2: Company Address -->
+          <div class="footer-section company-address">
+            <h4>Our Office</h4>
+            <p>Stackly Green Energy Solutions</p>
+            <p>123 Renewable Way, Suite 456</p>
+            <p>Green City, GE 90210</p>
+            <p>United States</p>
+          </div>
+
+          <!-- Column 3: Newsletter Subscription -->
+          <div class="footer-section newsletter-subscription">
+            <h4>Stay Updated</h4>
+            <p>
+              Subscribe to our newsletter for the latest in green tech and
+              offers.
+            </p>
+            <div class="newsletter-form">
+              <form action="./404.html">
+                <label for="email-sub" class="sr-only">Email Address</label>
+                <input
+                  type="email"
+                  id="email-sub"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                />
+                <button type="submit" class="button">Subscribe</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Column 4: Map Section with Embedded Map (using iframe as requested) -->
+          <div class="footer-section map-section2">
+            <h4>New York Location</h4>
+            <!-- WARNING: Live map embedding (via iframe) may fail to display correctly 
+                         in environments with strict Content Security Policies (CSP). -->
+            <iframe
+              src="https://maps.google.com/maps?q=New+York+City+Renewable+Way&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="150"
+              style="border: 0; border-radius: var(--border-radius)"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Embedded map of New York Office Location"
+            >
+            </iframe>
+          </div>
+        </div>
+
+        <div class="copyright">
+          &copy; 2025 Stackly Green Energy Solutions. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+    <script src="./nav2.js"></script>
+  </body>
+</html>

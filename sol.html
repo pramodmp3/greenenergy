@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services - Stackly Green Energy Solutions</title>
+
+    <!-- Load a modern font (Inter) via Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./sol.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <div class="logo">
+          <a href="./home.html">
+            <!-- Placeholder image path -->
+            <img src="./file/logooo.webp" alt="Stackly Logo" />
+          </a>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button class="hamburger" aria-label="Toggle navigation menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </button>
+
+        <ul class="nav-menu">
+          <!-- <li class="nav-item"><a href="#" class="nav-link">HOME</a></li> -->
+
+          <!-- Dropdown Item (Use nav-link-text for navigation) -->
+          <li class="nav-item nav-item-dropdown">
+            <!-- Main Link: Clicking this text navigates -->
+            <a href="./home.html" class="nav-link nav-link-dropdown">
+              <span class="nav-link-text">HOME</span>
+              <!-- Dropdown Icon (Desktop/Mobile toggle) -->
+              <i class="fas fa-chevron-down dropdown-toggle-icon"></i>
+            </a>
+
+            <ul class="dropdown">
+              <li class="dropdown-item">
+                <a href="./index.html">HOME1</a>
+              </li>
+              <!-- <li class="dropdown-item">
+                <a href="#service-solar">Solar Grids</a>
+              </li>
+              <li class="dropdown-item">
+                <a href="#service-storage">Energy Storage</a>
+              </li>
+              <li class="dropdown-item">
+                <a href="#service-consulting">Consulting</a>
+              </li> -->
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="./sol.html" class="nav-link">ENERGY SOLUTIONS</a>
+          </li>
+          <li class="nav-item">
+            <a href="./about2.html" class="nav-link">OUR COMPANY</a>
+          </li>
+          <li class="nav-item">
+            <a href="./globe.html" class="nav-link">SOCIAL WORKS</a>
+          </li>
+          <!-- <li class="nav-item"><a href="./contact.html" class="nav-link">CONTACT</a></li> -->
+          <li class="nav-item">
+            <a href="./blog2.html" class="nav-link">BLOG</a>
+          </li>
+
+          <!-- Login Button (Treated as a menu item on mobile) -->
+          <li class="nav-login">
+            <a href="./contact2.html" class="login-btn">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- 2. Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Our Green Energy Solutions</h1>
+        <p>
+          We are committed to powering a sustainable future through innovative
+          and reliable renewable energy technologies, tailored for your home or
+          business.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. Services Overview Section (Grid) -->
+    <section class="services-overview">
+      <div class="container">
+        <h2>Core Services</h2>
+        <p>
+          From residential installation to utility-scale integration, Stackly
+          provides end-to-end green energy services.
+        </p>
+
+        <div class="services-grid">
+          <!-- Service Card 1 -->
+          <article class="service-card">
+            <span class="icon-placeholder">☀️</span>
+            <h3>Solar Panel Installation</h3>
+            <p>
+              High-efficiency photovoltaic systems for maximizing energy capture
+              on residential and commercial properties.
+            </p>
+          </article>
+
+          <!-- Service Card 2 -->
+          <article class="service-card">
+            <span class="icon-placeholder">💨</span>
+            <h3>Wind Energy Systems</h3>
+            <p>
+              Design and deployment of small to medium-scale wind turbines in
+              suitable geographical locations.
+            </p>
+          </article>
+
+          <!-- Service Card 3 -->
+          <article class="service-card">
+            <span class="icon-placeholder">💾</span>
+            <h3>Energy Storage Solutions</h3>
+            <p>
+              Advanced battery storage systems (BESS) to capture and deploy
+              excess renewable energy on demand.
+            </p>
+          </article>
+
+          <!-- Service Card 4 -->
+          <article class="service-card">
+            <span class="icon-placeholder">🔌</span>
+            <h3>EV Charging Infrastructure</h3>
+            <p>
+              Installation and maintenance of reliable, fast Electric Vehicle
+              charging stations for fleets and public use.
+            </p>
+          </article>
+
+          <!-- Service Card 5 -->
+          <article class="service-card">
+            <span class="icon-placeholder">💡</span>
+            <h3>Smart Grid Integration</h3>
+            <p>
+              Seamless connection of distributed renewable resources into
+              modern, optimized electrical grids.
+            </p>
+          </article>
+
+          <!-- Service Card 6 -->
+          <article class="service-card">
+            <span class="icon-placeholder">📈</span>
+            <h3>Sustainability Consulting</h3>
+            <p>
+              Comprehensive strategic planning to help businesses meet ESG
+              targets and reduce their carbon footprint.
+            </p>
+          </article>
+
+          <!-- Service Card 7 -->
+          <article class="service-card">
+            <span class="icon-placeholder">🛠️</span>
+            <h3>Maintenance & Support</h3>
+            <p>
+              Preventative and reactive maintenance services to ensure peak
+              performance of all installed systems.
+            </p>
+          </article>
+
+          <!-- Service Card 8 -->
+          <article class="service-card">
+            <span class="icon-placeholder">🌍</span>
+            <h3>Microgrid Development</h3>
+            <p>
+              Creation of localized, independent power systems for enhanced
+              resilience and energy security.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Detailed Service Section (Optional) -->
+    <section class="detailed-service">
+      <div class="container">
+        <h2>Our Approach to Sustainability</h2>
+        <div class="two-column-layout">
+          <div class="text-content">
+            <h3>Engineering Excellence, Delivered</h3>
+            <p>
+              Stackly follows a proprietary five-step process to ensure every
+              solution we deliver is optimized for long-term performance and
+              minimal environmental impact.
+            </p>
+            <p>
+              We leverage cutting-edge analytics and meteorological data to
+              design systems that maximize energy yield while minimizing visual
+              and ecological disruption. Our experts handle everything from
+              initial site assessment and permitting to final commissioning and
+              monitoring.
+            </p>
+            <p>
+              This dedication to detail ensures your investment delivers
+              consistent, reliable green power for decades.
+            </p>
+            <a href="./404.html" class="button">See Our Case Studies</a>
+          </div>
+
+          <div
+            class="image-container"
+            role="img"
+            aria-label="Sustainable Energy Solution Placeholder"
+          >
+            <!-- Image Placeholder content is in CSS background -->
+            <img src="./file/sol2.webp" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. “Why Choose Stackly” Section (Benefits) -->
+    <section class="benefits">
+      <div class="container">
+        <h2>Why Choose Stackly?</h2>
+
+        <div class="benefits-grid">
+          <div class="benefit-item">
+            <span class="benefit-icon">🌿</span>
+            <h4>Eco-friendly Design</h4>
+            <p>
+              Solutions that minimize ecological impact and maximize clean
+              energy production.
+            </p>
+          </div>
+
+          <div class="benefit-item">
+            <span class="benefit-icon">💰</span>
+            <h4>Cost Efficiency</h4>
+            <p>
+              Reduced operational expenses and attractive returns on investment
+              over the system lifecycle.
+            </p>
+          </div>
+
+          <div class="benefit-item">
+            <span class="benefit-icon">👨‍🔬</span>
+            <h4>Expert Engineering</h4>
+            <p>
+              A dedicated team of certified engineers ensuring flawless design
+              and installation.
+            </p>
+          </div>
+
+          <div class="benefit-item">
+            <span class="benefit-icon">⏱️</span>
+            <h4>Real-time Monitoring</h4>
+            <p>
+              24/7 digital monitoring allows us to optimize performance and
+              prevent downtime proactively.
+            </p>
+          </div>
+
+          <div class="benefit-item">
+            <span class="benefit-icon">✅</span>
+            <h4>Long-term Reliability</h4>
+            <p>
+              We use only Tier 1 components backed by robust warranties for
+              lasting performance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CTA Section (Call-to-Action) -->
+    <section class="cta">
+      <div class="container">
+        <h2>Ready to Power Your Future?</h2>
+        <p>
+          Contact us today for a free consultation and customized energy
+          assessment.
+        </p>
+        <a href="./404.html" class="button">Get a Free Quote</a>
+      </div>
+    </section>
+    <!-- Stackly Footer Component -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-logo-section">
+          <!-- 1. Logo Section - Placeholder for Image --><img
+            src="./file/logooo.webp"
+            alt="Stackly Logo"
+            class="footer-logo"
+          />
+
+          <!-- 2. Social Media Icons Section -->
+          <div class="social-icons">
+            <!-- Using Font Awesome icons (if CDN is loaded) or simple text placeholders --><a
+              href="./404.html"
+              class="social-icon instagram"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="./404.html"
+              class="social-icon facebook"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="./404.html"
+              class="social-icon linkedin"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              href="./404.html"
+              class="social-icon twitter"
+              aria-label="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- Main Footer Content Grid -->
+        <div class="footer-content-grid">
+          <!-- Column 1: Quick Links -->
+          <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="./home.html">HOME</a></li>
+              <li><a href="./sol.html">ENERGY SOLUTIONS</a></li>
+              <li><a href="./globe.html">GLOBAL</a></li>
+              <li><a href="./about2.html">ABOUT</a></li>
+              <li><a href="./contact2.html">CONTACT</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 2: Company Address -->
+          <div class="footer-section company-address">
+            <h4>Our Office</h4>
+            <p>Stackly Green Energy Solutions</p>
+            <p>123 Renewable Way, Suite 456</p>
+            <p>Green City, GE 90210</p>
+            <p>United States</p>
+          </div>
+
+          <!-- Column 3: Newsletter Subscription -->
+          <div class="footer-section newsletter-subscription">
+            <h4>Stay Updated</h4>
+            <p>
+              Subscribe to our newsletter for the latest in green tech and
+              offers.
+            </p>
+            <div class="newsletter-form">
+              <form action="./404.html">
+                <label for="email-sub" class="sr-only">Email Address</label>
+                <input
+                  type="email"
+                  id="email-sub"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                />
+                <button type="submit" class="button">Subscribe</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Column 4: Map Section with Embedded Map (using iframe as requested) -->
+          <div class="footer-section map-section">
+            <h4>New York Location</h4>
+            <!-- WARNING: Live map embedding (via iframe) may fail to display correctly 
+                         in environments with strict Content Security Policies (CSP). -->
+            <iframe
+              src="https://maps.google.com/maps?q=New+York+City+Renewable+Way&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="150"
+              style="border: 0; border-radius: var(--border-radius)"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Embedded map of New York Office Location"
+            >
+            </iframe>
+          </div>
+        </div>
+
+        <div class="copyright">
+          &copy; 2025 Stackly Green Energy Solutions. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+    <script src="./nav2.js"></script>
+  </body>
+</html>

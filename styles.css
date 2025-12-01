@@ -1,0 +1,1082 @@
+/* CSS Variables for easy theme adjustments */
+:root {
+  --green-primary: #10b981; /* Bright, vibrant green */
+  --green-secondary: #059669;
+  --text-dark: #1f2937;
+  --text-light: #4b5563;
+  --bg-light: #f9fafb;
+  --card-bg: #ffffff;
+  --border-color: #e5e7eb;
+  --shadow-base: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 15px rgba(16, 185, 129, 0.4);
+  --green-primary: #10b981; /* Bright, vibrant green */
+  --green-secondary: #059669;
+  --footer-bg: #1f2937; /* Dark background for high contrast */
+  --footer-text: #f9fafb; /* Light text */
+  --footer-heading: #ffffff;
+  --text-dark: #1f2937; /* Added for general use */
+  --text-light: #9ca3af; /* Adjusted for better contrast on dark bg */
+  --shadow-hover: 0 5px 15px rgba(16, 185, 129, 0.4);
+  --battery-empty: #e5e7eb; /* Light gray for empty battery part */
+  --color-primary-green: #10b981; /* Bright Emerald Green */
+  --color-secondary-green: #059669; /* Darker Green */
+  --color-text-dark: #1f2937;
+  --color-bg-light: #ffffff;
+  --color-bg-hover: #f3f4f6;
+  --transition-duration: 0.3s;
+}
+
+/* Base styles and modern reset */
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} */
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  background-color: var(--color-card-bg);
+  scroll-behavior: smooth;
+}
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+/* body {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+} */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ---------------------------------- */
+/* 1. Header and Layout (Mobile First) */
+/* ---------------------------------- */
+
+#main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* 16px top/bottom padding + 40px logo height = 72px total height */
+  padding: 16px 1.5rem;
+  background-color: var(--color-bg-light);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: relative; /* For z-index stacking */
+  z-index: 1000;
+}
+
+.logo {
+  width: auto;
+  height: 50px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* ---------------------------------- */
+/* 2. Mobile Hamburger Menu */
+/* ---------------------------------- */
+
+.menu-toggle {
+  display: flex; /* Show only on mobile */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001; /* Above everything */
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--color-text-dark);
+  border-radius: 2px;
+  transition: all var(--transition-duration) ease-in-out;
+}
+
+/* Hamburger Animation (X transform) */
+.menu-toggle.is-active span:nth-child(1) {
+  transform: translateY(10.5px) rotate(45deg);
+}
+
+.menu-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-active span:nth-child(3) {
+  transform: translateY(-10.5px) rotate(-45deg);
+}
+
+/* ---------------------------------- */
+/* 3. Navigation Menu (Mobile View) */
+/* ---------------------------------- */
+
+.nav-menu {
+  position: absolute;
+  top: 100%; /* Drop immediately below the header */
+  left: 0;
+  width: 100%;
+  max-height: 0; /* Hidden by default */
+  overflow: hidden;
+  background-color: var(--color-bg-light);
+  transition: max-height var(--transition-duration) ease-in-out;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.05);
+  z-index: 999;
+}
+
+.nav-menu.is-active {
+  height: calc(100vh - 72px); /* EXACT height, not max-height */
+  max-height: calc(100vh - 72px);
+  overflow-y: auto;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.nav-item {
+  border-bottom: 1px solid #e5e7eb;
+}
+.nav-item:last-child {
+  border-bottom: none;
+}
+
+.nav-link {
+  display: block;
+  color: var(--color-text-dark);
+  padding: 12px 1.5rem;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  background-color: var(--color-bg-hover);
+}
+
+/* Dropdown Items (Mobile Specific) */
+.nav-item.has-dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  position: absolute;
+  right: 1.5rem;
+  top: 0;
+  height: 100%;
+  padding: 0 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--color-text-dark); /* Down arrow */
+  transition: transform var(--transition-duration);
+}
+
+.dropdown-toggle[aria-expanded="true"] .arrow {
+  transform: rotate(-180deg); /* Up arrow when open */
+  border-top-color: var(--color-primary-green);
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  overflow: hidden;
+  max-height: 0; /* Hidden by default */
+  transition: max-height var(--transition-duration) ease-in-out;
+  background-color: #f9fafb;
+}
+
+.dropdown-content.is-open {
+  /* Adjust max-height based on content */
+  max-height: 200px;
+  padding-bottom: 5px;
+}
+
+.dropdown-content li a {
+  padding: 8px 3rem; /* Indented padding */
+  font-weight: 400;
+  color: #4b5563;
+  display: block;
+}
+
+.dropdown-content li a:hover {
+  background-color: var(--color-bg-hover);
+  color: var(--color-primary-green);
+}
+
+/* ---------------------------------- */
+/* 4. Login Button (Shared) */
+/* ---------------------------------- */
+.battery-button {
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.battery-button:hover {
+  transform: scale(0.9);
+  filter: brightness(1.2);
+}
+
+.login-button {
+  padding: 8px 16px;
+  border-radius: 15px 0px 15px 0px; /* Pill shape */
+  font-weight: 700;
+  color: var(--color-bg-light);
+  background-color: var(--color-primary-green);
+  transition: background-color var(--transition-duration),
+    box-shadow var(--transition-duration);
+
+  /* Glowing Green Accent */
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+}
+
+.login-button:hover {
+  background-color: var(--color-secondary-green);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+}
+
+/* ---------------------------------- */
+/* 5. Desktop Styles (Min-width: 768px) */
+/* ---------------------------------- */
+
+@media (min-width: 768px) {
+  #main-header {
+    padding: 0.5rem 2rem;
+  }
+
+  .menu-toggle {
+    display: none; /* Hide hamburger */
+  }
+
+  .nav-menu {
+    position: static; /* Position static on desktop */
+    max-height: none !important; /* Override mobile max-height */
+    overflow: visible;
+    flex-grow: 1; /* Take remaining space */
+    box-shadow: none;
+    margin-left: 2rem;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    padding: 0;
+    border-bottom: none;
+    align-items: center;
+    height: 100%;
+  }
+
+  .nav-item {
+    border-bottom: none;
+    position: relative; /* For absolute dropdown positioning */
+  }
+
+  .nav-link {
+    padding: 1.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color var(--transition-duration),
+      color var(--transition-duration);
+    text-transform: uppercase;
+    font-size: 0.875rem; /* slightly smaller font for horizontal layout */
+  }
+
+  .nav-link:hover {
+    background-color: transparent; /* Remove background hover for desktop */
+    color: var(--color-primary-green);
+  }
+
+  /* Dropdown Items (Desktop Specific) */
+  .nav-item.has-dropdown {
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+  }
+
+  .dropdown-toggle {
+    position: static; /* Remove absolute positioning */
+    height: auto;
+    padding: 0 8px;
+    margin-left: -5px;
+  }
+
+  .dropdown-toggle .arrow {
+    transition: transform var(--transition-duration),
+      border-top-color var(--transition-duration);
+  }
+
+  .dropdown-toggle[aria-expanded="true"] .arrow {
+    transform: rotate(-180deg);
+    border-top-color: var(--color-primary-green);
+  }
+
+  /* Dropdown Content */
+  .dropdown-content {
+    position: absolute;
+    top: 100%; /* Drop below the nav item */
+    left: 50%;
+    transform: translateX(-50%); /* Center the dropdown */
+    width: 200px;
+    background-color: var(--color-bg-light);
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-top: 3px solid var(--color-primary-green);
+    padding: 0; /* Reset mobile padding */
+
+    /* Desktop default state: absolute visibility control */
+    max-height: 0; /* Control visibility with max-height/opacity/transform */
+    opacity: 0;
+    pointer-events: none; /* Disable interaction when hidden */
+    z-index: 1010;
+  }
+
+  .dropdown-content.is-open {
+    max-height: 300px; /* Animate height */
+    opacity: 1;
+    pointer-events: auto;
+    transition: max-height var(--transition-duration) ease-out,
+      opacity var(--transition-duration) ease-out 0.1s;
+    padding: 10px 0;
+  }
+
+  .dropdown-content li a {
+    padding: 10px 15px; /* Adjust padding for desktop */
+    text-align: left;
+    font-size: 0.9rem;
+  }
+
+  .nav-actions {
+    margin-left: auto; /* Push login button to the right */
+  }
+
+  /* Hover functionality for desktop (in addition to click-arrow) */
+  .nav-item.has-dropdown:hover > .dropdown-content {
+    max-height: 300px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .nav-item.has-dropdown:hover .dropdown-toggle .arrow {
+    transform: rotate(-180deg);
+    border-top-color: var(--color-primary-green);
+  }
+}
+
+/* Utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-padding {
+  padding: 6rem 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: var(--green-secondary); /* Using darker green for emphasis */
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: var(--color-text-dark);
+}
+
+/* Buttons */
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  background-color: var(--green-primary);
+  border: none;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-speed),
+    transform var(--transition-speed), box-shadow var(--transition-speed);
+  box-shadow: var(--shadow-hover); /* Using new shadow variable */
+  margin-top: 1.5rem;
+}
+
+.cta-button:hover {
+  background-color: var(--green-secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ------------------------
+        1. HERO SECTION
+        ------------------------ */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-bg-light);
+  overflow: hidden;
+  background-color: var(--color-text-dark); /* Dark fallback for contrast */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Placeholder for full-width background image */
+  background-image: url("./assets/h2.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3; /* Subtle dark overlay for readability */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem;
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 4.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* ------------------------
+        2. SERVICES OVERVIEW
+        ------------------------ */
+.services {
+  background-color: var(--color-bg-light);
+}
+
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.service-card {
+  background-color: var(--color-card-bg);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-base);
+  text-align: center;
+  transition: transform var(--transition-speed),
+    box-shadow var(--transition-speed);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.service-icon {
+  font-size: 3rem;
+  color: var(--green-primary);
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--green-secondary);
+}
+
+/* ------------------------
+        3. PRODUCTS OVERVIEW
+        ------------------------ */
+/* --- PRODUCTS SECTION STYLES --- */
+
+/* General Section Styling */
+.products-section {
+  background-color: #f8fcf8; /* A very light, subtle green/off-white */
+  padding: 60px 0; /* Standard padding for sections */
+}
+
+/* Container and Text Alignment (assuming a standard structure) */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Headings and Subtitles */
+.section-title {
+  font-size: 2.5rem;
+  color: #007bff; /* Primary blue for a professional look */
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  font-size: 1.15rem;
+  color: #555;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Product Grid Layout */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px; /* Space between product cards */
+  margin-bottom: 40px;
+}
+
+/* Individual Product Card Styling */
+.product-item {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft, modern shadow */
+  overflow: hidden;
+  width: 100%;
+  max-width: 350px; /* Max width for items on larger screens */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left; /* Align content inside the card */
+}
+
+.product-item:hover {
+  transform: translateY(-8px); /* Subtle lift on hover */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+/* Image Wrapper */
+.product-image-wrapper {
+  height: 220px; /* Fixed height for consistent card size */
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the area without distortion */
+  transition: transform 0.5s ease;
+}
+
+.product-item:hover .product-image {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Product Text Content */
+.product-name {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin: 15px 20px 5px;
+  font-weight: 600;
+}
+
+.product-description {
+  color: #7f8c8d;
+  font-size: 1rem;
+  padding: 0 20px 20px;
+  line-height: 1.4;
+}
+
+/* Call to Action Button */
+.cta-button {
+  display: inline-block;
+  background-color: #2ecc71; /* Vibrant green for action */
+  color: white;
+  padding: 12px 30px;
+  border-radius: 50px; /* Pill shape */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: #27ae60; /* Slightly darker green on hover */
+  transform: translateY(-2px); /* Slight lift */
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 992px) {
+  .product-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-item {
+    max-width: 90%;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .section-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* ------------------------
+        4. CONTRIBUTION TO ENVIRONMENT
+        ------------------------ */
+.contribution {
+  background-color: var(--green-primary);
+  color: var(--color-text-light);
+}
+
+.contribution h2 {
+  color: var(--color-text-light);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.metric-item {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.15
+  ); /* Slightly brighter overlay on primary green */
+  border-radius: var(--border-radius);
+}
+
+.metric-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.metric-number {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.metric-label {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ------------------------
+        5. FAQS SECTION
+        ------------------------ */
+.faqs {
+  background-color: var(--color-card-bg);
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 3rem auto 0 auto;
+}
+
+.faq-item {
+  border: 1px solid var(--color-text-dark);
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  background-color: var(--color-primary-green);
+  padding: 1.5rem;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color var(--transition-speed);
+  color: var(--color-bg-light);
+}
+
+.faq-question:hover {
+  background-color: var(--color-text-dark);
+}
+
+.faq-question span {
+  font-size: 1.5rem;
+  transition: transform var(--transition-speed);
+}
+
+.faq-question[aria-expanded="true"] span {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding var(--transition-speed);
+  padding: 0 1.5rem;
+}
+
+.faq-answer p {
+  padding: 1rem 0;
+}
+
+.faq-question[aria-expanded="true"] + .faq-answer {
+  max-height: 500px; /* Sufficient height for smooth transition */
+  padding-bottom: 1.5rem;
+}
+
+/* ------------------------
+        MOBILE RESPONSIVENESS
+        ------------------------ */
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 4rem 0;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  /* Services and Contribution grids automatically stack due to minmax/auto-fit */
+  .service-cards,
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+
+  .metric-number {
+    font-size: 2.5rem;
+  }
+}
+
+/* Footer Main Styling */
+.main-footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 50px 20px;
+  width: 100%;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 40px;
+  /* Desktop Layout: 4 columns */
+  grid-template-columns: 2fr 1.5fr 1.5fr 3fr;
+}
+
+.footer-section h4 {
+  font-size: 1.25rem;
+  color: var(--green-primary);
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+/* 1. Logo & Social Section */
+.footer-logo-section .logo-placeholder {
+  width: 150px;
+  height: auto;
+  /* background-color: var(--green-primary); */
+  border-radius: 8px;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.footer-logo-section .company-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--footer-heading);
+  letter-spacing: -0.5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.footer-logo-section .company-name span {
+  color: var(--green-primary);
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icon-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: var(--text-light);
+  color: var(--footer-bg);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 50%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.social-icon-link:hover {
+  background-color: var(--green-primary);
+  color: var(--footer-heading);
+}
+
+/* 2. Quick Links Section */
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: var(--footer-text);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 1rem;
+}
+
+.footer-links a:hover {
+  color: var(--green-primary);
+  text-decoration: underline;
+}
+
+/* 3. Address Section */
+.footer-address p {
+  margin-bottom: 10px;
+  color: var(--footer-text);
+}
+
+/* 4. Newsletter Section */
+.newsletter-form p {
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+.newsletter-input-group {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter-input {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  flex-grow: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--footer-text);
+}
+
+/* Placeholder styling for dark input */
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ------------------------------------------------ */
+/* BATTERY BUTTON STYLING (SUBSCRIBE BUTTON) */
+/* ------------------------------------------------ */
+
+.subscribe-battery-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 1rem;
+  padding: 10px 15px 10px 50px; /* Adjusted padding for the battery icon */
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease, transform 0.2s, background-color 0.3s;
+  position: relative;
+  background-color: var(--footer-heading); /* White background */
+  border: 2px solid var(--green-secondary);
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.subscribe-battery-btn:hover {
+  background-color: var(--footer-heading);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.4); /* Green ring glow on hover */
+  transform: translateY(-1px);
+}
+
+/* Battery Icon Container */
+.subscribe-battery-btn .battery-icon-container {
+  position: absolute;
+  left: 8px; /* Closer to the edge */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35px; /* Slightly smaller battery */
+  height: 18px;
+  border: 2px solid var(--green-secondary);
+  border-radius: 4px;
+  background-color: var(--battery-empty);
+  z-index: 10;
+}
+
+/* Battery Terminal Cap */
+.subscribe-battery-btn .battery-icon-container::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 8px;
+  background-color: var(--green-secondary);
+  border-radius: 0 2px 2px 0;
+}
+
+/* Green Fill (Energy Level) */
+.subscribe-battery-btn .battery-fill {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 90%; /* Fixed high fill level */
+  background-color: var(--green-primary);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Text overlay for contrast */
+.subscribe-battery-btn span {
+  position: relative;
+  z-index: 11;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.subscribe-battery-btn:hover .battery-fill {
+  width: 100%; /* Fill up slightly more on hover */
+}
+/* End of BATTERY BUTTON STYLING */
+
+/* Copyright Bar */
+.footer-copyright {
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* ========================================================== */
+/* MEDIA QUERIES */
+/* ========================================================== */
+
+/* Tablet Layout (2 columns) */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* Move Newsletter to its own row spanning 2 columns */
+  .footer-newsletter {
+    grid-column: span 2;
+  }
+}
+
+/* Mobile Layout (1 column) */
+@media (max-width: 600px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .footer-newsletter {
+    grid-column: span 1;
+  }
+  .newsletter-input-group {
+    flex-direction: column;
+  }
+  .subscribe-battery-btn {
+    width: 100%;
+    /* Reset mobile button padding for better centering */
+    padding: 12px 20px 12px 50px;
+  }
+}

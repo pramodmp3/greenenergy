@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly Blog - Latest Insights in Green Energy</title>
+    <!-- Load Poppins font for a modern, professional look -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./blog2.css" />
+    <!-- Embedded CSS (No Tailwind) -->
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <div class="logo">
+          <a href="./home.html">
+            <!-- Placeholder image path -->
+            <img src="./file/logooo.webp" alt="Stackly Logo" />
+          </a>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button class="hamburger" aria-label="Toggle navigation menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </button>
+
+        <ul class="nav-menu">
+          <!-- <li class="nav-item"><a href="#" class="nav-link">HOME</a></li> -->
+
+          <!-- Dropdown Item (Use nav-link-text for navigation) -->
+          <li class="nav-item nav-item-dropdown">
+            <!-- Main Link: Clicking this text navigates -->
+            <a href="./home.html" class="nav-link nav-link-dropdown">
+              <span class="nav-link-text">HOME</span>
+              <!-- Dropdown Icon (Desktop/Mobile toggle) -->
+              <i class="fas fa-chevron-down dropdown-toggle-icon"></i>
+            </a>
+
+            <ul class="dropdown">
+              <li class="dropdown-item">
+                <a href="./index.html">HOME1</a>
+              </li>
+              <!-- <li class="dropdown-item">
+                <a href="#service-solar">Solar Grids</a>
+              </li>
+              <li class="dropdown-item">
+                <a href="#service-storage">Energy Storage</a>
+              </li>
+              <li class="dropdown-item">
+                <a href="#service-consulting">Consulting</a>
+              </li> -->
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="./sol.html" class="nav-link">ENERGY SOLUTIONS</a>
+          </li>
+          <li class="nav-item">
+            <a href="./about2.html" class="nav-link">OUR COMPANY</a>
+          </li>
+          <li class="nav-item">
+            <a href="./globe.html" class="nav-link">SOCIAL WORKS</a>
+          </li>
+          <!-- <li class="nav-item"><a href="./contact.html" class="nav-link">CONTACT</a></li> -->
+          <li class="nav-item">
+            <a href="./blog2.html" class="nav-link">BLOG</a>
+          </li>
+
+          <!-- Login Button (Treated as a menu item on mobile) -->
+          <li class="nav-login">
+            <a href="./contact2.html" class="login-btn">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Main Container and Page Content -->
+    <div class="blog-container">
+      <!-- Header and Branding -->
+      <div class="header-section">
+        <h1 class="page-title">Latest Insights & Green Energy News</h1>
+      </div>
+
+      <!-- Blog Grid -->
+      <div class="blog-grid">
+        <!-- Blog Post Card 1: Solar Technology -->
+        <a href="./404.html" class="blog-card">
+          <div class="card-image-wrapper">
+            <img
+              src="./file/b1.webp"
+              onerror="this.onerror=null; this.src='https://placehold.co/600x400/00A86B/FFFFFF?text=Solar+Innovation';"
+              alt="Featured image for solar innovation"
+              class="card-image"
+            />
+          </div>
+          <div class="card-content">
+            <span class="card-date">Published: November 25, 2025</span>
+            <h2 class="card-title">
+              The Dawn of Perovskite: Next-Gen Solar Cells
+            </h2>
+            <p class="card-excerpt">
+              Exploring how new materials like Perovskite are pushing solar
+              energy efficiency beyond traditional silicon limits. A look at
+              future grid resilience.
+            </p>
+            <span class="read-more-btn">Read More</span>
+          </div>
+        </a>
+
+        <!-- Blog Post Card 2: Wind Power -->
+        <a href="./404.html" class="blog-card">
+          <div class="card-image-wrapper">
+            <img
+              src="./file/b2.webp"
+              onerror="this.onerror=null; this.src='https://placehold.co/600x400/0054A6/FFFFFF?text=Offshore+Wind';"
+              alt="Featured image for offshore wind power"
+              class="card-image"
+            />
+          </div>
+          <div class="card-content">
+            <span class="card-date">Published: November 18, 2025</span>
+            <h2 class="card-title">
+              Floating Giants: The Future of Deep-Sea Offshore Wind
+            </h2>
+            <p class="card-excerpt">
+              Offshore wind farms are moving further into deep waters with
+              floating turbine technology. We analyze the economics and
+              environmental impact.
+            </p>
+            <span class="read-more-btn">Read More</span>
+          </div>
+        </a>
+
+        <!-- Blog Post Card 3: Battery Storage -->
+        <a href="./404.html" class="blog-card">
+          <div class="card-image-wrapper">
+            <img
+              src="./file/b3.webp"
+              onerror="this.onerror=null; this.src='https://placehold.co/600x400/EF3E42/FFFFFF?text=Energy+Storage';"
+              alt="Featured image for battery energy storage"
+              class="card-image"
+            />
+          </div>
+          <div class="card-content">
+            <span class="card-date">Published: November 10, 2025</span>
+            <h2 class="card-title">
+              Grid-Scale Battery Storage: Solving Intermittency Challenges
+            </h2>
+            <p class="card-excerpt">
+              How large-scale battery systems are becoming the backbone of
+              reliable renewable energy grids, mitigating the inherent
+              volatility of solar and wind.
+            </p>
+            <span class="read-more-btn">Read More</span>
+          </div>
+        </a>
+
+        <!-- Blog Post Card 4: Hydrogen -->
+        <a href="./404.html" class="blog-card">
+          <div class="card-image-wrapper">
+            <img
+              src="./file/b4.webp"
+              onerror="this.onerror=null; this.src='https://placehold.co/600x400/00A86B/FFFFFF?text=Green+Hydrogen';"
+              alt="Featured image for green hydrogen production"
+              class="card-image"
+            />
+          </div>
+          <div class="card-content">
+            <span class="card-date">Published: October 29, 2025</span>
+            <h2 class="card-title">
+              Green Hydrogen: Fueling Heavy Industry Decarbonization
+            </h2>
+            <p class="card-excerpt">
+              An overview of how green hydrogen, produced via electrolysis using
+              renewable power, is key to cleaning up sectors like steel and
+              cement production.
+            </p>
+            <span class="read-more-btn">Read More</span>
+          </div>
+        </a>
+
+        <!-- Blog Post Card 5: Smart Grid -->
+        <a href="./404.html" class="blog-card">
+          <div class="card-image-wrapper">
+            <img
+              src="./file/b5.webp"
+              onerror="this.onerror=null; this.src='https://placehold.co/600x400/0054A6/FFFFFF?text=Smart+Grid+Tech';"
+              alt="Featured image for smart grid technology"
+              class="card-image"
+            />
+          </div>
+          <div class="card-content">
+            <span class="card-date">Published: October 20, 2025</span>
+            <h2 class="card-title">
+              AI and the Smart Grid: Optimizing Energy Flow
+            </h2>
+            <p class="card-excerpt">
+              Artificial intelligence is transforming grid management,
+              predicting demand, balancing renewable inputs, and preventing
+              energy wastage across cities.
+            </p>
+            <span class="read-more-btn">Read More</span>
+          </div>
+        </a>
+
+        <!-- Blog Post Card 6: Policy -->
+        <a href="./404.html" class="blog-card">
+          <div class="card-image-wrapper">
+            <img
+              src="./file/b6.webp"
+              onerror="this.onerror=null; this.src='https://placehold.co/600x400/EF3E42/FFFFFF?text=Policy+Change';"
+              alt="Featured image for energy policy and regulation"
+              class="card-image"
+            />
+          </div>
+          <div class="card-content">
+            <span class="card-date">Published: October 1, 2025</span>
+            <h2 class="card-title">
+              The Global Race: Comparing National Renewable Energy Targets
+            </h2>
+            <p class="card-excerpt">
+              A comparative analysis of the ambitious renewable energy targets
+              set by leading nations and the policy levers required to meet them
+              by 2030.
+            </p>
+            <span class="read-more-btn">Read More</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Stackly Footer Component -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-logo-section">
+          <!-- 1. Logo Section - Placeholder for Image --><img
+            src="./file/logooo.webp"
+            alt="Stackly Logo"
+            class="footer-logo"
+          />
+
+          <!-- 2. Social Media Icons Section -->
+          <div class="social-icons">
+            <!-- Using Font Awesome icons (if CDN is loaded) or simple text placeholders --><a
+              href="./404.html"
+              class="social-icon instagram"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="./404.html"
+              class="social-icon facebook"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="./404.html"
+              class="social-icon linkedin"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              href="./404.html"
+              class="social-icon twitter"
+              aria-label="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- Main Footer Content Grid -->
+        <div class="footer-content-grid">
+          <!-- Column 1: Quick Links -->
+          <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="./home.html">HOME</a></li>
+              <li><a href="./sol.html">ENERGY SOLUTIONS</a></li>
+              <li><a href="./globe.html">GLOBAL</a></li>
+              <li><a href="./about2.html">ABOUT</a></li>
+              <li><a href="./contact2.html">CONTACT</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 2: Company Address -->
+          <div class="footer-section company-address">
+            <h4>Our Office</h4>
+            <p>Stackly Green Energy Solutions</p>
+            <p>123 Renewable Way, Suite 456</p>
+            <p>Green City, GE 90210</p>
+            <p>United States</p>
+          </div>
+
+          <!-- Column 3: Newsletter Subscription -->
+          <div class="footer-section newsletter-subscription">
+            <h4>Stay Updated</h4>
+            <p>
+              Subscribe to our newsletter for the latest in green tech and
+              offers.
+            </p>
+            <div class="newsletter-form">
+              <form action="./404.html">
+                <label for="email-sub" class="sr-only">Email Address</label>
+                <input
+                  type="email"
+                  id="email-sub"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                />
+                <button type="submit" class="button">Subscribe</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Column 4: Map Section with Embedded Map (using iframe as requested) -->
+          <div class="footer-section map-section">
+            <h4>New York Location</h4>
+            <!-- WARNING: Live map embedding (via iframe) may fail to display correctly 
+                         in environments with strict Content Security Policies (CSP). -->
+            <iframe
+              src="https://maps.google.com/maps?q=New+York+City+Renewable+Way&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="150"
+              style="border: 0; border-radius: var(--border-radius)"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Embedded map of New York Office Location"
+            >
+            </iframe>
+          </div>
+        </div>
+
+        <div class="copyright">
+          &copy; 2025 Stackly Green Energy Solutions. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+    <script src="./nav2.js"></script>
+  </body>
+</html>

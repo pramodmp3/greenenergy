@@ -1,0 +1,278 @@
+/* CSS Custom Properties (Consistent Theme) */
+:root {
+  --green-primary: #10b981; /* Bright, vibrant green */
+  --green-secondary: #059669;
+  --footer-bg: #1f2937; /* Dark background for high contrast */
+  --footer-text: #f9fafb; /* Light text */
+  --footer-heading: #ffffff;
+  --text-dark: #1f2937; /* Added for general use */
+  --text-light: #9ca3af; /* Adjusted for better contrast on dark bg */
+  --shadow-hover: 0 5px 15px rgba(16, 185, 129, 0.4);
+  --battery-empty: #e5e7eb; /* Light gray for empty battery part */
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--bg-light);
+  line-height: 1.6;
+}
+
+/* Footer Main Styling */
+.main-footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 50px 20px;
+  width: 100%;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 40px;
+  /* Desktop Layout: 4 columns */
+  grid-template-columns: 2fr 1.5fr 1.5fr 3fr;
+}
+
+.footer-section h4 {
+  font-size: 1.25rem;
+  color: var(--green-primary);
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+/* 1. Logo & Social Section */
+.footer-logo-section .logo-placeholder {
+  width: 150px;
+  height: auto;
+  /* background-color: var(--green-primary); */
+  border-radius: 8px;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.footer-logo-section .company-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--footer-heading);
+  letter-spacing: -0.5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.footer-logo-section .company-name span {
+  color: var(--green-primary);
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icon-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: var(--text-light);
+  color: var(--footer-bg);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 50%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.social-icon-link:hover {
+  background-color: var(--green-primary);
+  color: var(--footer-heading);
+}
+
+/* 2. Quick Links Section */
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: var(--footer-text);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 1rem;
+}
+
+.footer-links a:hover {
+  color: var(--green-primary);
+  text-decoration: underline;
+}
+
+/* 3. Address Section */
+.footer-address p {
+  margin-bottom: 10px;
+  color: var(--footer-text);
+}
+
+/* 4. Newsletter Section */
+.newsletter-form p {
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+.newsletter-input-group {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter-input {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  flex-grow: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--footer-text);
+}
+
+/* Placeholder styling for dark input */
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ------------------------------------------------ */
+/* BATTERY BUTTON STYLING (SUBSCRIBE BUTTON) */
+/* ------------------------------------------------ */
+
+.subscribe-battery-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 1rem;
+  padding: 10px 15px 10px 50px; /* Adjusted padding for the battery icon */
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease, transform 0.2s, background-color 0.3s;
+  position: relative;
+  background-color: var(--footer-heading); /* White background */
+  border: 2px solid var(--green-secondary);
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.subscribe-battery-btn:hover {
+  background-color: var(--footer-heading);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.4); /* Green ring glow on hover */
+  transform: translateY(-1px);
+}
+
+/* Battery Icon Container */
+.subscribe-battery-btn .battery-icon-container {
+  position: absolute;
+  left: 8px; /* Closer to the edge */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35px; /* Slightly smaller battery */
+  height: 18px;
+  border: 2px solid var(--green-secondary);
+  border-radius: 4px;
+  background-color: var(--battery-empty);
+  z-index: 10;
+}
+
+/* Battery Terminal Cap */
+.subscribe-battery-btn .battery-icon-container::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 8px;
+  background-color: var(--green-secondary);
+  border-radius: 0 2px 2px 0;
+}
+
+/* Green Fill (Energy Level) */
+.subscribe-battery-btn .battery-fill {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 90%; /* Fixed high fill level */
+  background-color: var(--green-primary);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Text overlay for contrast */
+.subscribe-battery-btn span {
+  position: relative;
+  z-index: 11;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.subscribe-battery-btn:hover .battery-fill {
+  width: 100%; /* Fill up slightly more on hover */
+}
+/* End of BATTERY BUTTON STYLING */
+
+/* Copyright Bar */
+.footer-copyright {
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* ========================================================== */
+/* MEDIA QUERIES */
+/* ========================================================== */
+
+/* Tablet Layout (2 columns) */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* Move Newsletter to its own row spanning 2 columns */
+  .footer-newsletter {
+    grid-column: span 2;
+  }
+}
+
+/* Mobile Layout (1 column) */
+@media (max-width: 600px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .footer-newsletter {
+    grid-column: span 1;
+  }
+  .newsletter-input-group {
+    flex-direction: column;
+  }
+  .subscribe-battery-btn {
+    width: 100%;
+    /* Reset mobile button padding for better centering */
+    padding: 12px 20px 12px 50px;
+  }
+}

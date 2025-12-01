@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly - Green Energy Navbar</title>
+    <!-- Load Font Inter from Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./nav.css" />
+  </head>
+  <body>
+    <header id="main-header">
+      <!-- Logo -->
+      <a href="./index.html" class="logo-link">
+        <!-- Placeholder Image for Stackly Logo -->
+        <img src="./assets/logooo.webp" alt="Stackly Logo" class="logo" />
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav id="main-nav" class="nav-menu">
+        <ul class="nav-list">
+          <!-- <li class="nav-item"><a href="#" class="nav-link">HOME</a></li> -->
+
+          <!-- Dropdown: HOME2 -->
+          <li class="nav-item has-dropdown">
+            <a href="./index.html" class="nav-link">HOME</a>
+            <!-- Arrow Toggle -->
+            <button
+              class="dropdown-toggle"
+              aria-expanded="false"
+              aria-controls="dropdown-home2"
+            >
+              <span class="arrow"></span>
+            </button>
+            <!-- Dropdown Content -->
+            <ul id="dropdown-home2" class="dropdown-content">
+              <li><a href="./home.html">HOME2</a></li>
+              <!-- <li><a href="#">Landing Page 2</a></li>
+              <li><a href="#">About Us</a></li> -->
+            </ul>
+          </li>
+
+          <!-- Dropdown: WHAT WE DO -->
+          <li class="nav-item has-dropdown">
+            <a href="./service.html" class="nav-link">WHAT WE DO</a>
+            <!-- Arrow Toggle -->
+            <button
+              class="dropdown-toggle"
+              aria-expanded="false"
+              aria-controls="dropdown-whatwedo"
+            >
+              <span class="arrow"></span>
+            </button>
+            <!-- Dropdown Content -->
+            <ul id="dropdown-whatwedo" class="dropdown-content">
+              <li><a href="./service.html">GREEN ENERGY</a></li>
+              <li><a href="./green.html">PRODUCTS</a></li>
+              <!-- <li><a href="#">Sustainability</a></li> -->
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="./about.html" class="nav-link">OUR COMPANY</a>
+          </li>
+          <li class="nav-item">
+            <a href="./dash.html" class="nav-link">DASHBOARD</a>
+          </li>
+          <li class="nav-item">
+            <a href="./contact.html" class="nav-link">CONTACT</a>
+          </li>
+          <li class="nav-item">
+            <a href="./blog.html" class="nav-link">BLOG</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Login Button -->
+      <!-- Battery Button -->
+      <!-- Battery Button -->
+      <div class="nav-actions">
+        <a href="./login.html"
+          ><svg
+            class="battery-button"
+            width="120"
+            height="60"
+            viewBox="0 0 120 60"
+            onclick="batteryClicked()"
+            style="cursor: pointer"
+          >
+            <!-- Battery body -->
+            <rect
+              x="2"
+              y="5"
+              width="100"
+              height="50"
+              rx="8"
+              ry="8"
+              fill="#10b981"
+              stroke="#059669"
+              stroke-width="3"
+            />
+            <!-- Battery tip -->
+            <rect
+              x="102"
+              y="20"
+              width="16"
+              height="20"
+              rx="3"
+              ry="3"
+              fill="#10b981"
+              stroke="#059669"
+              stroke-width="3"
+            />
+            <!-- Centered Text -->
+            <text
+              x="52"
+              y="30"
+              fill="white"
+              font-size="16"
+              font-weight="bold"
+              text-anchor="middle"
+              dominant-baseline="middle"
+            >
+              LOGIN
+            </text>
+          </svg></a
+        >
+      </div>
+
+      <!-- Hamburger Menu Button (Re-positioned for visual flow) -->
+      <button
+        class="menu-toggle"
+        aria-controls="main-nav"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <!-- <div style="padding: 2rem; text-align: center">
+      <h1 style="color: var(--color-primary-green)">
+        Stackly Green Energy Solutions
+      </h1>
+      <p style="margin-top: 1rem; color: #4b5563">
+        Resize your browser window to test the mobile and desktop views.
+      </p>
+    </div> -->
+
+    <script src="./nav.js"></script>
+  </body>
+</html>

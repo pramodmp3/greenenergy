@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly Signup - Powering Up</title>
+    <style>
+      /* CSS Custom Properties (Consistent Theme) */
+      :root {
+        --green-primary: #10b981; /* Bright, vibrant green */
+        --green-secondary: #059669;
+        --text-dark: #1f2937;
+        --text-light: #4b5563;
+        --bg-light: #f9fafb;
+        --card-bg: #ffffff;
+        --border-color: #e5e7eb;
+        --shadow-base: 0 4px 12px rgba(0, 0, 0, 0.08);
+        --shadow-hover: 0 10px 20px rgba(16, 185, 129, 0.4);
+        --battery-empty: #e5e7eb;
+        --error-color: #ef4444;
+      }
+
+      /* Base Styles and Centering */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", sans-serif;
+      }
+
+      body,
+      html {
+        height: 100%;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+      }
+
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* Allow scrolling if form is taller than viewport */
+        min-height: 100%;
+        padding: 20px;
+      }
+
+      /* Signup Card Container */
+      .signup-container {
+        width: 100%;
+        max-width: 450px;
+        padding: 40px;
+        background-color: var(--card-bg);
+        border-radius: 15px;
+        box-shadow: var(--shadow-base);
+        border: 1px solid var(--border-color);
+        text-align: center;
+        margin: 40px 0; /* Ensures vertical margin on mobile/scroll */
+      }
+
+      .signup-container h1 {
+        font-size: 2.2rem;
+        color: var(--green-secondary);
+        margin-bottom: 10px;
+      }
+
+      .signup-container p {
+        color: var(--text-light);
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+      }
+
+      /* Form Styling */
+      .signup-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .form-group {
+        text-align: left;
+      }
+
+      .form-group label {
+        font-weight: 600;
+        margin-bottom: 5px;
+        display: block;
+        color: var(--text-dark);
+        font-size: 0.95rem;
+      }
+
+      .form-group input {
+        padding: 14px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 1rem;
+        width: 100%;
+        transition: border-color 0.3s, box-shadow 0.3s;
+        color: var(--text-dark);
+        background-color: var(--bg-light);
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border-color: var(--green-primary);
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        background-color: white;
+      }
+
+      /* Error Message Styling */
+      .error-message-text {
+        color: var(--error-color);
+        margin-top: 5px;
+        font-size: 0.9rem;
+        height: 1.2em; /* Reserve space to prevent layout shift */
+      }
+
+      /* ------------------------------------------------ */
+      /* BATTERY BUTTON STYLING (SIGNUP BUTTON) */
+      /* ------------------------------------------------ */
+
+      .battery-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-weight: 700;
+        color: var(--text-dark);
+        font-size: 1.1rem;
+        padding: 12px 20px 12px 60px;
+        border-radius: 8px;
+        transition: box-shadow 0.3s ease, transform 0.2s;
+        position: relative;
+        background-color: var(--card-bg);
+        border: 2px solid var(--green-secondary);
+        overflow: hidden;
+        width: 100%;
+        cursor: pointer;
+        margin-top: 25px;
+      }
+
+      /* Disable pointer events during animation */
+      .battery-btn[disabled] {
+        cursor: not-allowed;
+        opacity: 0.9;
+        transform: none !important;
+      }
+
+      .battery-btn:not([disabled]):hover {
+        box-shadow: var(--shadow-hover);
+        transform: translateY(-2px);
+      }
+
+      /* Battery Icon Container */
+      .battery-icon-container {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 20px;
+        border: 2px solid var(--green-secondary);
+        border-radius: 4px;
+        background-color: var(--battery-empty);
+        z-index: 10;
+      }
+
+      /* Battery Terminal Cap */
+      .battery-icon-container::after {
+        content: "";
+        position: absolute;
+        right: -6px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 8px;
+        background-color: var(--green-secondary);
+        border-radius: 0 2px 2px 0;
+      }
+
+      /* Green Fill (Energy Level) */
+      .battery-fill {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0%; /* Start at 0% for charging animation */
+        background-color: var(--green-primary);
+        border-radius: 2px;
+        transition: width 0.05s linear; /* Smooth transition fallback */
+      }
+
+      /* Text overlay for contrast */
+      .battery-btn span {
+        position: relative;
+        z-index: 11;
+        color: var(--text-dark); /* Default text color */
+        transition: color 0.4s ease;
+      }
+
+      /* Text color change when charged */
+      .battery-btn.charged span {
+        color: white;
+      }
+
+      /* Charging Animation Keyframes */
+      @keyframes charging-fill {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+
+      /* Class added by JS to start animation */
+      .battery-btn.is-charging .battery-fill {
+        width: 100%;
+        animation: charging-fill 2s linear forwards; /* 2s duration for charging */
+      }
+
+      /* Auxiliary Links Styling */
+      .auxiliary-links {
+        margin-top: 15px;
+        font-size: 0.95rem;
+        padding: 0 5px;
+        text-align: center;
+      }
+
+      .auxiliary-links a {
+        color: var(--green-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .auxiliary-links a:hover {
+        color: var(--green-primary);
+        text-decoration: underline;
+      }
+
+      /* Mobile Adjustments */
+      @media (max-width: 480px) {
+        .signup-container {
+          padding: 30px 20px;
+        }
+        .battery-btn {
+          padding: 12px 20px 12px 55px;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="signup-container">
+        <h1>Create Stackly Account</h1>
+        <p>Join the grid and start your clean energy journey.</p>
+
+        <form class="signup-form" id="signup-form" action="./404.html">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Jane Doe"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="jane.doe@example.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="(555) 123-4567"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              placeholder="••••••••"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              required
+              placeholder="••••••••"
+            />
+            <div id="password-match-error" class="error-message-text"></div>
+          </div>
+
+          <button type="submit" class="battery-btn" id="signup-button">
+            <div class="battery-icon-container">
+              <div class="battery-fill" id="battery-fill"></div>
+            </div>
+            <span>SIGN UP & POWER ON</span>
+          </button>
+        </form>
+
+        <div class="auxiliary-links">
+          Already have an account? <a href="./login.html">Log In</a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("signup-form");
+        const signupButton = document.getElementById("signup-button");
+        const batteryFill = document.getElementById("battery-fill");
+        const buttonText = signupButton.querySelector("span");
+        const passwordInput = document.getElementById("password");
+        const confirmPasswordInput =
+          document.getElementById("confirm-password");
+        const passwordErrorDiv = document.getElementById(
+          "password-match-error"
+        );
+
+        function validateForm() {
+          // 1. Check all required fields are filled (browser handles primary validation)
+          if (!form.checkValidity()) {
+            // Trigger browser's native validation hints
+            form.reportValidity();
+            return false;
+          }
+
+          // 2. Check password match
+          if (passwordInput.value !== confirmPasswordInput.value) {
+            passwordErrorDiv.textContent = "Passwords do not match.";
+            confirmPasswordInput.focus();
+            return false;
+          } else {
+            passwordErrorDiv.textContent = "";
+          }
+
+          return true;
+        }
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default submission initially
+
+          if (!validateForm()) {
+            return;
+          }
+
+          // 1. Start Animation and Disable Button
+          signupButton.setAttribute("disabled", "true");
+          signupButton.classList.add("is-charging");
+          buttonText.textContent = "CHARGING...";
+
+          // 2. Listen for the animation to complete
+          batteryFill.addEventListener("animationend", handleAnimationEnd, {
+            once: true,
+          });
+
+          function handleAnimationEnd() {
+            // Update state after animation finishes
+            signupButton.classList.remove("is-charging");
+            signupButton.classList.add("charged");
+            buttonText.textContent = "REDIRECTING...";
+
+            // 3. Submit the form to the action URL
+            form.submit();
+          }
+        });
+
+        // Optional: Reset button visual state on non-animated hover for better UX
+        signupButton.addEventListener("mouseover", () => {
+          if (!signupButton.hasAttribute("disabled")) {
+            signupButton.style.boxShadow = "var(--shadow-hover)";
+            signupButton.style.transform = "translateY(-2px)";
+          }
+        });
+
+        signupButton.addEventListener("mouseout", () => {
+          if (!signupButton.hasAttribute("disabled")) {
+            signupButton.style.boxShadow = "none";
+            signupButton.style.transform = "none";
+          }
+        });
+
+        // Clear error message when user starts typing again
+        passwordInput.addEventListener("input", () => {
+          passwordErrorDiv.textContent = "";
+        });
+        confirmPasswordInput.addEventListener("input", () => {
+          passwordErrorDiv.textContent = "";
+        });
+      });
+    </script>
+  </body>
+</html>

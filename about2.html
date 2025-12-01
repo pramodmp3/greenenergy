@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Stackly - Powering a Greener Future</title>
+    <!-- Load Poppins font for a modern look -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./about2.css" />
+    <!-- Embedded CSS (No frameworks, only pure CSS) -->
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <div class="logo">
+          <a href="./home.html">
+            <!-- Placeholder image path -->
+            <img src="./file/logooo.webp" alt="Stackly Logo" />
+          </a>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button class="hamburger" aria-label="Toggle navigation menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </button>
+
+        <ul class="nav-menu">
+          <!-- <li class="nav-item"><a href="#" class="nav-link">HOME</a></li> -->
+
+          <!-- Dropdown Item (Use nav-link-text for navigation) -->
+          <li class="nav-item nav-item-dropdown">
+            <!-- Main Link: Clicking this text navigates -->
+            <a href="./home.html" class="nav-link nav-link-dropdown">
+              <span class="nav-link-text">HOME</span>
+              <!-- Dropdown Icon (Desktop/Mobile toggle) -->
+              <i class="fas fa-chevron-down dropdown-toggle-icon"></i>
+            </a>
+
+            <ul class="dropdown">
+              <li class="dropdown-item">
+                <a href="./index.html">HOME1</a>
+              </li>
+              <!-- <li class="dropdown-item">
+                <a href="#service-solar">Solar Grids</a>
+              </li>
+              <li class="dropdown-item">
+                <a href="#service-storage">Energy Storage</a>
+              </li>
+              <li class="dropdown-item">
+                <a href="#service-consulting">Consulting</a>
+              </li> -->
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="./sol.html" class="nav-link">ENERGY SOLUTIONS</a>
+          </li>
+          <li class="nav-item">
+            <a href="./about2.html" class="nav-link">OUR COMPANY</a>
+          </li>
+          <li class="nav-item">
+            <a href="./globe.html" class="nav-link">SOCIAL WORKS</a>
+          </li>
+          <!-- <li class="nav-item"><a href="./contact.html" class="nav-link">CONTACT</a></li> -->
+          <li class="nav-item">
+            <a href="./blog2.html" class="nav-link">BLOG</a>
+          </li>
+
+          <!-- Login Button (Treated as a menu item on mobile) -->
+          <li class="nav-login">
+            <a href="./contact2.html" class="login-btn">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container hero-content">
+          <h1>Powering a Greener Future</h1>
+          <p>
+            Stackly is a leading technology partner dedicated to accelerating
+            the global transition to renewable energy through smart systems and
+            sustainable infrastructure development.
+          </p>
+        </div>
+      </section>
+
+      <!-- Company Story Section -->
+      <section class="section">
+        <div class="container">
+          <h2 id="story">Our Story: Sustainable Roots</h2>
+          <div class="story-content">
+            <div class="story-image-placeholder">
+              <img src="./file/ab1.webp" alt="" />
+            </div>
+            <div class="story-text">
+              <h3>Innovation Meets Responsibility</h3>
+              <p>
+                Founded in 2018 by a team of engineers and environmental
+                scientists, Stackly was born from the realization that scalable,
+                reliable green energy required a tech-first approach. We started
+                small, optimizing local solar farms, and have since grown into a
+                global provider of integrated energy management solutions.
+              </p>
+              <p>
+                Our commitment extends beyond generation. We focus on
+                efficiency, grid resilience, and community engagement, ensuring
+                that every project delivers long-term economic and ecological
+                benefit.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mission, Vision & Values Section -->
+      <section class="section section-light-bg">
+        <div class="container">
+          <h2 id="values">Mission, Vision & Core Values</h2>
+          <div class="values-grid">
+            <div class="value-card">
+              <div class="icon-placeholder">✨</div>
+              <h3>Mission</h3>
+              <p>
+                To provide clean, affordable, and accessible energy solutions
+                that ensure a sustainable planet for future generations.
+              </p>
+            </div>
+
+            <div class="value-card">
+              <div class="icon-placeholder">🧭</div>
+              <h3>Vision</h3>
+              <p>
+                To become the world's most trusted green energy technology
+                platform, achieving 100% renewable grid integration globally.
+              </p>
+            </div>
+
+            <div class="value-card">
+              <div class="icon-placeholder">🌱</div>
+              <h3>Integrity</h3>
+              <p>
+                We operate with transparency, accountability, and respect for
+                our environment, partners, and employees in every endeavor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sustainability Impact Section -->
+      <section class="section">
+        <div class="container">
+          <h2 id="impact">Our Global Impact</h2>
+          <div class="impact-grid">
+            <div class="impact-metric">
+              <div class="value">95%</div>
+              <div class="label">Renewable Portfolio</div>
+            </div>
+
+            <div class="impact-metric">
+              <div class="value">4.2M T</div>
+              <div class="label">CO₂ Reduction (Cumulative)</div>
+            </div>
+
+            <div class="impact-metric">
+              <div class="value">150K+</div>
+              <div class="label">Customers Served</div>
+            </div>
+
+            <div class="impact-metric">
+              <div class="value">85+</div>
+              <div class="label">Active Projects Worldwide</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section class="section section-light-bg">
+        <div class="container">
+          <h2 id="team">Meet Our Leadership Team</h2>
+          <div class="team-grid">
+            <!-- Team Member 1 -->
+            <div class="team-member">
+              <div class="team-photo-placeholder"><span>👤</span></div>
+              <h4>Elara Vance</h4>
+              <p>CEO & Founder</p>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-member">
+              <div class="team-photo-placeholder"><span>👩‍💻</span></div>
+              <h4>Dr. Kenji Ito</h4>
+              <p>Chief Technology Officer</p>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-member">
+              <div class="team-photo-placeholder"><span>💰</span></div>
+              <h4>Marcus Chen</h4>
+              <p>Chief Financial Officer</p>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="team-member">
+              <div class="team-photo-placeholder"><span>📊</span></div>
+              <h4>Anya Sharma</h4>
+              <p>VP of Strategy</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Stackly Footer Component -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-logo-section">
+          <!-- 1. Logo Section - Placeholder for Image --><img
+            src="./file/logooo.webp"
+            alt="Stackly Logo"
+            class="footer-logo"
+          />
+
+          <!-- 2. Social Media Icons Section -->
+          <div class="social-icons">
+            <!-- Using Font Awesome icons (if CDN is loaded) or simple text placeholders --><a
+              href="./404.html"
+              class="social-icon instagram"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="./404.html"
+              class="social-icon facebook"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="./404.html"
+              class="social-icon linkedin"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              href="./404.html"
+              class="social-icon twitter"
+              aria-label="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- Main Footer Content Grid -->
+        <div class="footer-content-grid">
+          <!-- Column 1: Quick Links -->
+          <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="./home.html">HOME</a></li>
+              <li><a href="./sol.html">ENERGY SOLUTIONS</a></li>
+              <li><a href="./globe.html">GLOBAL</a></li>
+              <li><a href="./about2.html">ABOUT</a></li>
+              <li><a href="./contact2.html">CONTACT</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 2: Company Address -->
+          <div class="footer-section company-address">
+            <h4>Our Office</h4>
+            <p>Stackly Green Energy Solutions</p>
+            <p>123 Renewable Way, Suite 456</p>
+            <p>Green City, GE 90210</p>
+            <p>United States</p>
+          </div>
+
+          <!-- Column 3: Newsletter Subscription -->
+          <div class="footer-section newsletter-subscription">
+            <h4>Stay Updated</h4>
+            <p>
+              Subscribe to our newsletter for the latest in green tech and
+              offers.
+            </p>
+            <div class="newsletter-form">
+              <form action="./404.html">
+                <label for="email-sub" class="sr-only">Email Address</label>
+                <input
+                  type="email"
+                  id="email-sub"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                />
+                <button type="submit" class="button">Subscribe</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Column 4: Map Section with Embedded Map (using iframe as requested) -->
+          <div class="footer-section map-section">
+            <h4>New York Location</h4>
+            <!-- WARNING: Live map embedding (via iframe) may fail to display correctly 
+                         in environments with strict Content Security Policies (CSP). -->
+            <iframe
+              src="https://maps.google.com/maps?q=New+York+City+Renewable+Way&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="150"
+              style="border: 0; border-radius: var(--border-radius)"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Embedded map of New York Office Location"
+            >
+            </iframe>
+          </div>
+        </div>
+
+        <div class="copyright">
+          &copy; 2025 Stackly Green Energy Solutions. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+    <script src="./nav2.js"></script>
+  </body>
+</html>

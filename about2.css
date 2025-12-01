@@ -1,0 +1,938 @@
+/* ====================================
+           1. CSS Variables and Base Styles
+           ==================================== */
+:root {
+  /* Colors */
+  --color-primary: #00796b; /* Teal/Dark Green */
+  --color-secondary: #4caf50; /* Medium Green */
+  --color-accent: #81c784; /* Light Green for hover */
+  --color-text-dark: #263238; /* Dark Slate */
+  --color-text-light: #f5f5f5; /* Off-White */
+  --color-background: #ffffff;
+  --color-surface: #f5f5f5; /* Light Gray for sections */
+  --color-card-bg: #ffffff;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-blue: var(
+    --color-primary
+  ); /* Use primary color for hover/link blue */
+  --color-red: #e53935;
+  --color-primary-blue: var(--color-primary); /* Use Teal/Dark Green */
+  --color-secondary-green: var(--color-secondary); /* Use Medium Green */
+  /* You also had these undefined in the team section, defining them here: */
+  --color-accent-green: var(--color-accent);
+  --color-text-subtle: #607d8b;
+  /* Typography */
+  --font-family: "Inter", sans-serif;
+  --font-size-base: 16px;
+
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 32px;
+  --spacing-lg: 64px;
+
+  /* Border Radius */
+  --border-radius: 12px;
+}
+/* ====================================
+      1. CSS Variables and Base Styles
+      ==================================== */
+
+/* Box sizing and reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  padding-top: 80px;
+  background-color: var(--color-background);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+ul {
+  list-style: none;
+}
+
+/* =====================================
+           1. Header and Navigation Structure
+           ===================================== */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-text-light);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 80px;
+}
+
+/* Logo Styling */
+.logo a {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-blue);
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px; /* Adjust size for logo */
+  width: auto;
+  margin-right: 8px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  color: var(--color-text-dark);
+}
+a:hover {
+  /* FIX 2: Hover color is now primary green */
+  color: var(--color-primary);
+}
+/* =====================================
+           2. Desktop Menu (Default)
+           ===================================== */
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-item {
+  position: relative;
+  font-weight: 500;
+  color: var(--color-text-dark);
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  padding: 0 0.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: color var(--transition-speed);
+  position: relative;
+  color: var(--color-primary);
+}
+
+.nav-link:hover {
+  color: var(--color-blue);
+}
+
+/* Underline effect on hover/active */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-green);
+  transform: scaleX(0);
+  transition: transform var(--transition-speed) ease-in-out;
+  transform-origin: right;
+}
+
+.nav-link:hover::after,
+.nav-item.active .nav-link::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Dropdown Styling (Desktop Hover) */
+.nav-item-dropdown .nav-link-dropdown {
+  cursor: default; /* Make the main link non-clickable on desktop if it only serves as a dropdown trigger */
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-text-light);
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-top: 3px solid var(--color-green);
+  border-radius: 0 0 8px 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity var(--transition-speed),
+    visibility var(--transition-speed), transform var(--transition-speed);
+  z-index: 999;
+}
+
+.nav-item-dropdown:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item a {
+  display: block;
+  padding: 10px 15px;
+  color: var(--color-text-dark);
+  transition: background-color 0.2s, color 0.2s;
+  font-weight: 400;
+}
+
+.dropdown-item a:hover {
+  background-color: #f0f4f8;
+  color: var(--color-blue);
+}
+
+.dropdown i.fa-chevron-down {
+  margin-left: 5px;
+  font-size: 0.75rem;
+  transition: transform 0.2s;
+}
+
+.nav-item-dropdown:hover i.fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+/* Login Button */
+.nav-login {
+  margin-left: 1.5rem;
+}
+
+.login-btn {
+  background-color: var(--color-red);
+  color: var(--color-text-light);
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: 2px solid var(--color-red);
+  font-weight: 600;
+  transition: background-color var(--transition-speed),
+    border-color var(--transition-speed);
+}
+
+.login-btn:hover {
+  background-color: var(--color-blue);
+  border-color: var(--color-blue);
+}
+
+/* Hamburger (Hidden on Desktop) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-blue);
+  transition: all var(--transition-speed) ease-in-out;
+  border-radius: 2px;
+}
+
+/* Hamburger Animation */
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+/* =====================================
+           3. Mobile Menu (Media Query)
+           ===================================== */
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    /* Initial state: Hidden off-screen/collapsed */
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--color-text-light);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    /* Smooth slide-down effect using max-height */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, border-color 0.5s;
+    border-bottom: 0px solid var(--color-green);
+  }
+
+  .nav-menu.active {
+    max-height: 500px; /* A value larger than the menu's actual height */
+    border-bottom: 3px solid var(--color-green);
+  }
+
+  /* Menu Items on Mobile */
+  .nav-item {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #eee;
+    display: block;
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .nav-link {
+    padding: 15px 1.5rem;
+    justify-content: space-between;
+    height: auto;
+  }
+
+  .nav-link::after {
+    /* Remove desktop underline animation */
+    display: none;
+  }
+
+  .nav-link:hover {
+    background-color: #f0f4f8;
+  }
+
+  /* Dropdown on Mobile (Click Behavior) */
+  .nav-item-dropdown {
+    display: block;
+  }
+
+  .nav-item-dropdown .nav-link-dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .dropdown-toggle-icon {
+    /* Red Chevron Icon for Mobile Dropdown */
+    color: var(--color-red);
+    font-size: 1rem;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform var(--transition-speed);
+    display: inline-block;
+  }
+
+  .nav-item-dropdown .dropdown {
+    /* Initial state: Collapsed */
+    position: static;
+    box-shadow: none;
+    border-top: none;
+    border-radius: 0;
+    min-width: unset;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+
+    /* Smooth submenu slide-down */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    background-color: #fafafa;
+  }
+
+  /* State when submenu is open */
+  .nav-item-dropdown.submenu-open .dropdown {
+    max-height: 300px; /* Adjust as needed */
+  }
+
+  /* Rotate arrow when open */
+  .nav-item-dropdown.submenu-open .dropdown-toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-item a {
+    padding: 10px 3rem; /* Indent submenu items */
+    border-left: 3px solid var(--color-green);
+  }
+
+  /* Login Button on Mobile */
+  .nav-login {
+    width: 100%;
+    padding: 15px;
+    margin-left: 0;
+    border-top: 1px solid #eee;
+  }
+
+  .login-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-secondary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+}
+
+section {
+  padding: var(--spacing-lg) 0;
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  margin: var(--spacing-sm) 0 var(--spacing-md);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+.button {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-secondary);
+  color: var(--color-text-light);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--color-primary);
+  transform: translateY(-2px);
+  color: var(--color-text-light); /* Ensure text remains white */
+}
+
+/* --- Utility Container for Centering --- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: 0.5em;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--color-primary-blue);
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+/* --- Hero Section - Adjusted for no Header --- */
+.hero {
+  padding-top: 60px; /* Use standard padding since fixed header is gone */
+  height: 60vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg-subtle);
+  text-align: center;
+  background: linear-gradient(135deg, var(--color-bg-subtle) 0%, #e8f9e8 100%);
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  color: var(--color-primary-blue);
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: var(--color-text-dark);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* --- Section Styling --- */
+.section {
+  padding: var(--padding-section) 0;
+}
+
+.section-light-bg {
+  background-color: var(--color-bg-subtle);
+}
+
+/* --- Company Story Section --- */
+.story-content {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.story-image-placeholder {
+  flex: 1;
+  min-height: 300px;
+  background-color: #d1e7dd;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--color-primary-blue);
+  font-weight: 600;
+}
+
+.story-text {
+  flex: 1;
+}
+
+.story-text h3 {
+  color: var(--color-accent-green);
+}
+
+/* --- Mission, Vision & Values Section (3-Column Grid) --- */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  text-align: center;
+}
+
+.value-card {
+  padding: 30px 20px;
+  border-radius: 10px;
+  background-color: var(--color-bg-light);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid var(--color-accent-green);
+}
+
+.value-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.value-card .icon-placeholder {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: var(--color-primary-blue);
+}
+
+.value-card h3 {
+  font-size: 1.3rem;
+}
+
+/* --- Sustainability Impact Section (4-Column Grid) --- */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.impact-metric {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: var(--color-primary-blue);
+  color: var(--color-text-light);
+}
+
+.impact-metric:nth-child(even) {
+  background-color: var(--color-secondary-green);
+}
+
+.impact-metric .value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 5px;
+}
+
+.impact-metric .label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* --- Team Section (Responsive Grid) --- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  text-align: center;
+}
+
+.team-member {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--color-bg-light);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.team-member:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.team-photo-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: var(--color-bg-subtle);
+  margin: 0 auto 15px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--color-accent-green);
+}
+.team-photo-placeholder span {
+  font-size: 3rem;
+  color: var(--color-primary-blue);
+}
+
+.team-member h4 {
+  font-size: 1.1rem;
+  margin: 5px 0;
+  color: var(--color-primary-blue);
+}
+
+.team-member p {
+  font-size: 0.9rem;
+  color: var(--color-text-subtle);
+}
+/* ====================================
+           2. Footer Section Styles
+           ==================================== */
+.main-footer {
+  background-color: var(--color-text-dark);
+  color: var(--color-text-light);
+  padding: var(--spacing-lg) 0 var(--spacing-md) 0;
+  text-align: left;
+  margin-top: 40px;
+}
+
+.footer-logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo {
+  width: 150px; /* Logo size control */
+  height: auto;
+  margin-bottom: var(--spacing-sm);
+  /* Makes placeholder look light on dark bg */
+}
+
+/* Main Grid/Flex Container for bottom footer content */
+.footer-content-grid {
+  display: grid;
+  gap: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  grid-template-columns: 1fr; /* Default: Single column mobile */
+}
+
+.footer-section h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--color-secondary);
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+/* Social Media Icons */
+.social-icons {
+  display: flex;
+  justify-content: center; /* Center under logo on mobile */
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+/* General social icon styling */
+.social-icon {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--color-text-light);
+  font-size: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  text-decoration: none; /* Ensure no underline */
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Specific social icon colors */
+.social-icon.instagram {
+  background-color: var(--social-instagram);
+}
+.social-icon.facebook {
+  background-color: var(--social-facebook);
+}
+.social-icon.linkedin {
+  background-color: var(--social-linkedin);
+}
+.social-icon.twitter {
+  background-color: var(--social-twitter);
+}
+
+/* Quick Links */
+.quick-links ul {
+  list-style: none;
+}
+
+.quick-links a {
+  color: var(--color-text-light);
+  display: block;
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+
+.quick-links a:hover {
+  color: var(--color-accent);
+  padding-left: 5px;
+}
+
+/* Company Address */
+.company-address p {
+  color: var(--color-text-light);
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+}
+
+/* Newsletter Form */
+.newsletter-form form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.newsletter-form input[type="email"] {
+  padding: var(--spacing-xs);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  background-color: var(--color-surface);
+  color: var(--color-text-dark);
+}
+
+.newsletter-form .button {
+  width: 100%;
+  padding: var(--spacing-xs);
+}
+
+/* Map Section Styling */
+.map-section {
+  display: flex;
+  flex-direction: column;
+  /* Added margin for the iframe if it renders */
+  margin-top: var(--spacing-sm);
+}
+
+/* Copyright bar */
+.copyright {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: var(--spacing-sm);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ====================================
+           3. Media Queries (Responsiveness)
+           ==================================== */
+
+/* Mobile (Default styles are mobile-first) */
+@media (max-width: 767px) {
+  /* Footer content still stacks vertically */
+  .footer-content-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    text-align: center;
+  }
+
+  .footer-section h4 {
+    text-align: center;
+  }
+
+  .quick-links a {
+    text-align: center;
+  }
+
+  .newsletter-form form {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+  /* Layout: 2 columns (e.g., Links/Address on top, Newsletter/Map on bottom) */
+  .footer-content-grid {
+    /* Changed to 2 columns to stack items better on tablet */
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Ensure alignment is left on tablet/desktop */
+  .footer-section {
+    text-align: left;
+  }
+
+  .footer-section h4 {
+    text-align: left;
+  }
+
+  .social-icons {
+    justify-content: flex-start; /* Align left */
+  }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+  /* Layout: 4 columns for balanced, non-stretching content */
+  .footer-content-grid {
+    /* 4 equal columns for Quick Links, Address, Newsletter, Map */
+    grid-template-columns: repeat(4, 1fr);
+    align-items: start;
+  }
+
+  .newsletter-subscription,
+  .company-address {
+    /* Re-adjust vertical margin for desktop when items are side-by-side */
+    margin-top: 0;
+  }
+}
+
+/* --- Mobile Responsiveness (Media Queries) --- */
+
+/* Tablet Layout (Max 992px) */
+@media (max-width: 992px) {
+  .story-content {
+    flex-direction: column;
+  }
+
+  .story-image-placeholder {
+    min-height: 250px;
+    width: 100%;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+  }
+
+  .impact-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr; /* Stack vertically for clarity */
+  }
+  .value-card {
+    margin-bottom: 15px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+}
+
+/* Mobile Layout (Max 768px) */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 0; /* Adjusted top padding since header is removed */
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  /* Stack all main grids into a single column */
+  .impact-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-metric .value {
+    font-size: 2rem;
+  }
+}
